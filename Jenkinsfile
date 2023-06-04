@@ -1,7 +1,5 @@
 pipeline {
-    agent {
-       label 'java-build-node'
-    }
+    agent any
     stages {
 	    stage('Git Check Out') {
             steps {
@@ -20,16 +18,29 @@ pipeline {
             steps {
                 sh 'mvn test'
             }
-            post {
-                always {
-                    junit 'target/surefire-reports/*.xml'
-                }
-            }
+	}		
+            //post {
+                //always {
+                    //junit 'target/surefire-reports/*.xml'
+                //}
+            //}
+        //}
+      stage('Package'){
+          steps{
+              sh "mvn package"
         }
-        stage('Deliver') {
-            steps {
-                sh './jenkins/scripts/deliver.sh'
-            }
+      }
+      stage('Sonar Scan'){
+          steps{
+            withSonarQubeEnv('sonar') {
+            sh "mvn sonar:sonar"
+          }
         }
+      }	
+        //stage('Deliver') {
+            //steps {
+                //sh './jenkins/scripts/deliver.sh'
+            //}
+        //}
     }
 }
