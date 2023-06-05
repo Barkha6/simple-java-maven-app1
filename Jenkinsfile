@@ -22,13 +22,13 @@ pipeline {
             }
             
         }
-	stage('Package'){
-          steps{
-	     script{	   
-                 Package()
-          }
-         }   
-       }		
+	//stage('Package'){
+          //steps{
+	     //script{	   
+                 //package()
+          //}
+         //}   
+       //}		
         
         //stage('Checking src') {
             //steps{
