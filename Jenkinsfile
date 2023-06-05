@@ -22,14 +22,7 @@ pipeline {
             }
             
         }
-	//stage('Package'){
-          //steps{
-	     //script{	   
-                 //package()
-          //}
-         //}   
-       //}		
-        
+			
         //stage('Checking src') {
             //steps{
                 //mySharedLibrary()
