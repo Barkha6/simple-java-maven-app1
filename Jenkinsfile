@@ -35,8 +35,8 @@ pipeline {
             withSonarQubeEnv('sonar') {
             sh "mvn sonar:sonar"
           }
-        }
-      }	
+        //}
+      //}	
         //stage('Deliver') {
             //steps {
                 //sh './jenkins/scripts/deliver.sh'
