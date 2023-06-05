@@ -22,6 +22,15 @@ pipeline {
             }
             
         }
+	stage('Package') {
+            steps {
+                script{
+                    package()
+                }
+                //sh 'mvn test'
+            }
+            
+        }    
 			
         //stage('Checking src') {
             //steps{
