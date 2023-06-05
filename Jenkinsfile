@@ -32,9 +32,9 @@ pipeline {
       }
       stage('Sonar Scan'){
           steps{
-            withSonarQubeEnv('sonar') {
+            //withSonarQubeEnv('sonar') {
             sh "mvn sonar:sonar"
-          }
+          //}
         }
       }	
         //stage('Deliver') {
