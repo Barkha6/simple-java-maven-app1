@@ -21,6 +21,9 @@ jobs:
           java-version: 11
           distribution: 'adopt'
           
+      - name: Maven package     
+        run: mvn -B clean package -DskipTests  
+          
       - name: Build
         run: |
            mvn -B -DskipTests clean package
@@ -28,21 +31,3 @@ jobs:
       - name: Test
         run: |
            mvn test
-
-      - name: Publish Test Results
-        if: always()
-        run: |
-          mkdir -p test-reports
-          cp -r target/surefire-reports test-reports
-          ls -R test-reports
-          echo "::set-output name=report-path::test-reports"
-
-      - name: Upload Test Reports
-        if: always()
-        uses: actions/upload-artifact@v2
-        with:
-          name: Test Reports
-          path: test-reports
-          
-      - name: Deliver
-        run: ./jenkins/scripts/deliver.sh
