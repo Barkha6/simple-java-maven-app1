@@ -25,7 +25,7 @@ pipeline {
 	stage('Package') {
             steps {
                 script{
-                    package()
+                    Package()
                 }
                 //sh 'mvn test'
             }
