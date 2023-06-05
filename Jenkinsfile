@@ -5,7 +5,7 @@ pipeline {
             steps {
            	gitCheckOut(
                     branch: "main",
-                    url: "https://github.com/Barkha6/simple-java-maven-app.git"
+                    url: "https://github.com/Barkha6/simple-java-maven-app1.git"
                 )
             }
         }
