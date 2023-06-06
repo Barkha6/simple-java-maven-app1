@@ -30,7 +30,12 @@ pipeline {
                 //sh 'mvn test'
             }
             
-        }    
+        }
+        stage('Deliver') {
+            steps {
+                sh './jenkins/scripts/deliver.sh'
+            }
+        }      
 			
         //stage('Checking src') {
             //steps{
